@@ -2,6 +2,10 @@
 
 <p *ngIf="!consents"><em>Loading...</em></p>
 
+<div *ngIf="consentForm.invalid" class="alert">
+  <p class="text-danger">* Please fill in the required fields</p>
+</div>
+
 <form [formGroup]="consentForm" (ngSubmit)="submit(consentForm.getRawValue())">
   <table class='table table-striped' aria-labelledby="tableLabel">
     <thead>

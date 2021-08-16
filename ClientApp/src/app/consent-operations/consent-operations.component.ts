@@ -29,6 +29,11 @@ export class ConsentOperationsComponent implements OnInit {
   }
 
   async submit(consent: Consent) {
+    if (this.consentForm.invalid) {
+      this.consentForm.markAllAsTouched();
+      return;
+    }
+
     let dbConsent: Consent;
     if (consent.id) {
       dbConsent = await this._consentService.update(consent);
