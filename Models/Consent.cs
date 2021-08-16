@@ -5,10 +5,7 @@ using System;
 namespace NetTask1.Models
 {
     /// <summary>
-    /// Represents cookie consent.
-    /// 
-    /// ResponsesBitmask is an integer, whose bits stand for positive/negative responses.
-    /// e.g. 5 = 101(2) means user responded positive on the 1st and 3rd questions
+    /// Represents cookie consent
     /// </summary>
     public class Consent
     {
@@ -19,6 +16,10 @@ namespace NetTask1.Models
         [BsonElement("UserName")]
         public string UserName { get; set; }
 
+        /// <summary>
+        /// ResponsesBitmask is an integer, whose bits stand for positive/negative responses.
+        /// e.g. 5 = 101(2) means user responded positive on the 1st and 3rd questions.
+        /// </summary>
         public int ResponsesBitmask { get; set; }
 
         public string WebSite { get; set; }
