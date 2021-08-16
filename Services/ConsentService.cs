@@ -2,9 +2,9 @@
 using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
-using MongoDB.Bson;
 using MongoDB.Driver.Linq;
 using System.Threading.Tasks;
+using NetTask1.Settings;
 
 namespace NetTask1.Services
 {

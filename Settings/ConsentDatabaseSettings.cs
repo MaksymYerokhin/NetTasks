@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace NetTask1.Models
+﻿namespace NetTask1.Settings
 {
     public class ConsentDatabaseSettings : IConsentDatabaseSettings
     {
