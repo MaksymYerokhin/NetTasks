@@ -1,0 +1,64 @@
+<h1 id="tableLabel">Consents</h1>
+
+<p *ngIf="!consents"><em>Loading...</em></p>
+
+<form [formGroup]="consentForm" (ngSubmit)="submit(consentForm.getRawValue())">
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>UserName</th>
+        <th>ResponsesBitmask</th>
+        <th>WebSite</th>
+        <th>Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tr>
+      <td>
+        <input id="formId" type="text" class="form-control" formControlName="id">
+      </td>
+      <td>
+        <input type="text" required class="form-control" placeholder="e.g. Max" formControlName="userName">
+      </td>
+      <td>
+        <input type="number" required class="form-control" placeholder="e.g. 5 = 101" formControlName="responsesBitmask">
+        Binary = {{ consentForm.value.responsesBitmask?.toString(2) || 0 }}
+      </td>
+      <td>
+        <input type="text" required class="form-control" placeholder="e.g. google.com" formControlName="webSite">
+      </td>
+      <td><i>Current date</i></td>
+      <td>
+        <button id="formSubmit" type="submit" class="btn btn-success">Submit</button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="consents">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>UserName</th>
+      <th>ResponsesBitmask</th>
+      <th>WebSite</th>
+      <th>Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let consent of consents">
+      <td>{{ consent.id }}</td>
+      <td>{{ consent.userName }}</td>
+      <td>{{ consent.responsesBitmask.toString(2) }}</td>
+      <td>{{ consent.webSite }}</td>
+      <td>{{ consent.date }}</td>
+      <td>
+        <button [id]="'edit_' + consent.id" type="button" class="btn btn-info" (click)="edit(consent)">Edit</button>
+        <button [id]="'delete_' + consent.id" type="button" class="btn btn-danger" (click)="delete(consent.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
