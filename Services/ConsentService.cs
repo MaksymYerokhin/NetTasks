@@ -23,7 +23,7 @@ namespace NetTask1.Services
         public List<Consent> Get() =>
             _userConsents.Find(consent => true).ToList();
 
-        public async Task<List<ConsentStats>> GetStats()
+        public async Task<List<ConsentStats>> GetStatsAsync()
         {
             // Translates to mongo aggregation
             var result = await _userConsents.AsQueryable()

@@ -39,7 +39,7 @@ namespace NetTask1.Controllers
         [HttpGet("stats")]
         public async Task<List<ConsentStats>> GetStats()
         {
-            var stats = await _consentService.GetStats();
+            var stats = await _consentService.GetStatsAsync();
 
             return stats;
         }
@@ -48,8 +48,6 @@ namespace NetTask1.Controllers
         public ActionResult<Consent> Create(Consent consent)
         {
             _consentService.Create(consent);
-
-            _consentService.GetStats();
 
             return consent;
         }
