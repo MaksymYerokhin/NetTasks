@@ -4,6 +4,12 @@ using System;
 
 namespace NetTask1.Models
 {
+    /// <summary>
+    /// Represents cookie consent.
+    /// 
+    /// ResponsesBitmask is an integer, whose bits stand for positive/negative responses.
+    /// e.g. 5 = 101(2) means user responded positive on the 1st and 3rd questions
+    /// </summary>
     public class Consent
     {
         [BsonId]

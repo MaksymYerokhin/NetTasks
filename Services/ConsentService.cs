@@ -23,6 +23,10 @@ namespace NetTask1.Services
         public List<Consent> Get() =>
             _userConsents.Find(consent => true).ToList();
 
+        /// <summary>
+        /// Gives the information on how many times the user has given a consent on the specific website.
+        /// </summary>
+        /// <returns>A list with consent count for every user-website pair</returns>
         public async Task<List<ConsentStats>> GetStatsAsync()
         {
             // Translates to mongo aggregation
